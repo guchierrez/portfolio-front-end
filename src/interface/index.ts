@@ -45,3 +45,19 @@ export interface IMainContext {
 export interface IMainContextProps {
   children: ReactNode;
 }
+
+export interface IProjectContext {
+  projects: Project[];
+}
+
+export interface IProjectContextProps {
+  children: ReactNode;
+}
+
+export interface Project {
+  id: number;
+  name: string;
+  description: string;
+  technologies: string[];
+  features: string[];
+}

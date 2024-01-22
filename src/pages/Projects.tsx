@@ -2,9 +2,11 @@ import { useState, useEffect, useContext } from "react";
 import { PageTitle } from "../components/PageTitle";
 import { ProjectCard } from "../components/ProjectCard";
 import { MainContext } from "../provider/MainContext";
+import { ProjectContext } from "../provider/ProjectContext";
 
 export const Projects = () => {
   const { translation } = useContext(MainContext);
+  const { projects } = useContext(ProjectContext);
 
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -26,13 +28,33 @@ export const Projects = () => {
       <PageTitle title={translation ? "Projetos" : "Projects"} />
       <main>
         <div className="flex flex-col gap-20">
-          <ProjectCard
-            imgSource="https://i.ibb.co/9g1Qsn6/asdasdasd.jpg"
-            title="Meisters"
+          {/* {projects.map((project) => (
+            <ProjectCard
+            imgSource={project.image}
+            title={project.name}
             description={
               translation
-                ? "Meisters é uma plataforma fullstack, com banco de dados integrado que permite aos usuários gerenciarem sua lista de tarefas."
-                : "Meisters is a full-stack platform, with an integrated database that allows users to manage a to do list."
+                ? project.description
+                : project.description_en
+            }
+            reverse={false}
+            technologies={project.technologies}
+            features={
+              translation
+                ? project.technologies
+                : project.technologies_en
+            }
+            liveDemo={project.link}
+            repo={project.repo}
+          />
+          ))} */}
+          <ProjectCard
+            imgSource="https://i.ibb.co/9g1Qsn6/asdasdasd.jpg"
+            title="Swiftask"
+            description={
+              translation
+                ? "Swiftask é uma plataforma fullstack, que permite aos usuários gerenciarem sua lista de tarefas."
+                : "Swiftask is a concise to do list app."
             }
             reverse={false}
             technologies={[
@@ -42,7 +64,6 @@ export const Projects = () => {
               "Spring Boot",
               "Tailwind CSS",
               "Daisy UI",
-              "PostgreSQL",
             ]}
             features={
               translation
@@ -57,8 +78,8 @@ export const Projects = () => {
                     "Responsive design in all resolutions",
                   ]
             }
-            liveDemo="https://meisters-test-marcelino-gutierrez.vercel.app/"
-            repo="https://github.com/guchierrez/meisters-back-end"
+            liveDemo="https://swiftask-front-end.vercel.app/"
+            repo="https://github.com/guchierrez/swiftask-back-end"
           />
           <ProjectCard
             imgSource="https://i.ibb.co/27bfPLj/project3.jpg"
@@ -99,7 +120,7 @@ export const Projects = () => {
                     "Usage of style variants library, enhancing code scalability (Tailwind Variants)",
                   ]
             }
-            liveDemo="https://dev-movies-rouge.vercel.app/"
+            liveDemo="https://dev-movies-rdoce0q9m-marcelinogutierrez.vercel.app/"
             repo="https://github.com/guchierrez/dev-movies"
           />
           <ProjectCard
@@ -135,7 +156,7 @@ export const Projects = () => {
                     "Responsive design in all resolutions",
                   ]
             }
-            liveDemo="https://fashion-store-entrega-template-grupo2.vercel.app/"
+            liveDemo="https://fashion-store-marcelino-gutierrez.vercel.app/"
             repo="https://github.com/Kenzie-Academy-Brasil-Developers/fashion-store-entrega-template-grupo2"
           />
           <ProjectCard
@@ -169,7 +190,7 @@ export const Projects = () => {
                     "Responsive design in all resolutions",
                   ]
             }
-            liveDemo="https://dev-hub-marcelino-gutierrez.vercel.app/"
+            liveDemo="https://dev-hub-marcelino-gutierrez-lyart.vercel.app/"
             repo="https://github.com/Kenzie-Academy-Brasil-Developers/dev-hub_marcelino-gutierrez"
           />
         </div>

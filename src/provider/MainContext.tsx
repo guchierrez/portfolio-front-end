@@ -23,7 +23,7 @@ import { SiExpress, SiNodedotjs } from "react-icons/si";
 
 export const MainContext = createContext({} as IMainContext);
 
-export const ContextProvider = ({ children }: IMainContextProps) => {
+export const MainContextProvider = ({ children }: IMainContextProps) => {
   const NavbarDrawerRef = useRef<HTMLInputElement>(null);
   const NavbarElementRef = useRef<HTMLDivElement>(null);
 
