@@ -17,7 +17,9 @@ export const ProjectContextProvider = ({ children }: IProjectContextProps) => {
       const { data } = await api.get("/projects");
       await setProjects(data);
     } catch {
-      toast.error("There was an internal server error.");
+      toast.error(
+        "There was an error while fetching projects from the database. Refresh the page and try again."
+      );
     }
   };
   return (
