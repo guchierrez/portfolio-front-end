@@ -65,5 +65,5 @@ export interface Project {
   features: string[];
   features_en: string[];
   project_url: string;
-  repositories: String[];
+  repositories: string[];
 }
