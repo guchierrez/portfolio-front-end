@@ -59,6 +59,11 @@ export interface Project {
   id: number;
   name: string;
   description: string;
+  description_en: string;
+  image: string;
   technologies: string[];
   features: string[];
+  features_en: string[];
+  project_url: string;
+  repository_url: string;
 }
