@@ -8,14 +8,13 @@ export const ProjectContext = createContext({} as IProjectContext);
 export const ProjectContextProvider = ({ children }: IProjectContextProps) => {
   useEffect(() => {
     loadProjects();
-  });
+  }, []);
 
   const [projects, setProjects] = useState<Array<Project>>([]);
 
   const loadProjects = async (): Promise<void> => {
     try {
       const { data } = await api.get("/projects");
-      console.log(data);
       await setProjects(data);
     } catch {
       toast.error("There was an internal server error.");

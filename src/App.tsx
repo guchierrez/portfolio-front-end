@@ -7,12 +7,16 @@ import { MainContext } from "./provider/MainContext";
 import { Loading } from "./components/Loading";
 
 function App() {
-  const { translation } = useContext(MainContext);
+  const { translation, setTranslation } = useContext(MainContext);
 
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     setLoading(true);
+
+    const localeLanguage = navigator.language || "en";
+    const isPortuguese = localeLanguage.toLowerCase().startsWith("pt");
+    setTranslation(isPortuguese);
 
     const timeout = setTimeout(() => {
       setLoading(false);

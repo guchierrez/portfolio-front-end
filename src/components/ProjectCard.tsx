@@ -11,7 +11,7 @@ export const ProjectCard = ({
   technologies,
   features,
   liveDemo,
-  repo,
+  repositories,
 }: IProjectCardProps) => {
   const { translation } = useContext(MainContext);
   return (
@@ -53,13 +53,31 @@ export const ProjectCard = ({
           </ul>
         </Accordion>
         <div className="flex gap-5 my-4">
-          <a
-            className="tracking-widest rounded-none btn btn-primary"
-            target="_blank"
-            href={repo}
-          >
-            {translation ? "Ver código" : "See code"}
-          </a>
+          <div className="dropdown">
+            <div
+              tabIndex={0}
+              role="button"
+              className="rounded-none btn btn-primary"
+            >
+              {translation ? "Ver código" : "See code"}
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow bg-base-200 w-52"
+            >
+              {repositories.map((repository: Object) => (
+                <li
+                  className="tracking-widest uppercase"
+                  key={Object.keys(repository)[0]}
+                >
+                  <a target="_blank" href={Object.values(repository)[0]}>
+                    {Object.keys(repository)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <a
             className="tracking-widest rounded-none btn btn-outline"
             target="_blank"

@@ -41,7 +41,7 @@ export const Projects = () => {
                 technologies={project.technologies}
                 features={translation ? project.features : project.features_en}
                 liveDemo={project.project_url}
-                repo={project.repository_url}
+                repositories={project.repositories}
               />
             ))
           ) : (
