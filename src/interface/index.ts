@@ -48,6 +48,7 @@ export interface IMainContextProps {
 
 export interface IProjectContext {
   projects: Project[];
+  setProjects: React.Dispatch<React.SetStateAction<Project[]>>;
 }
 
 export interface IProjectContextProps {

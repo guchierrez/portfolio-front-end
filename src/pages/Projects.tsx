@@ -2,11 +2,9 @@ import { useState, useEffect, useContext } from "react";
 import { PageTitle } from "../components/PageTitle";
 import { ProjectCard } from "../components/ProjectCard";
 import { MainContext } from "../provider/MainContext";
-import { ProjectContext } from "../provider/ProjectContext";
 
 export const Projects = () => {
   const { translation } = useContext(MainContext);
-  const { projects } = useContext(ProjectContext);
 
   const [loading, setLoading] = useState<boolean>(true);
 
