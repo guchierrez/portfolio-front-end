@@ -18,7 +18,7 @@ export interface IProjectCardProps {
   technologies: string[];
   features: string[];
   liveDemo: string;
-  repositories: Object[];
+  repositories: string[];
 }
 
 export interface IFooterIcons {
@@ -65,5 +65,5 @@ export interface Project {
   features: string[];
   features_en: string[];
   project_url: string;
-  repositories: Object[];
+  repositories: String[];
 }

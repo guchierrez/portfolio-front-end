@@ -65,16 +65,23 @@ export const ProjectCard = ({
               tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow bg-base-200 w-52"
             >
-              {repositories.map((repository: Object) => (
-                <li
-                  className="tracking-widest uppercase"
-                  key={Object.keys(repository)[0]}
+              <li className="tracking-widest uppercase">
+                <a target="_blank" href={repositories[0]}>
+                  Front end
+                </a>
+              </li>
+              <li
+                className={`tracking-widest uppercase ${
+                  repositories[1] ? "" : "hidden"
+                }`}
+              >
+                <a
+                  target="_blank"
+                  href={repositories[1] ? repositories[1] : "#"}
                 >
-                  <a target="_blank" href={Object.values(repository)[0]}>
-                    {Object.keys(repository)}
-                  </a>
-                </li>
-              ))}
+                  Back end
+                </a>
+              </li>
             </ul>
           </div>
 
