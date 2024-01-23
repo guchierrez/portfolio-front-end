@@ -115,7 +115,10 @@ export const MainContextProvider = ({ children }: IMainContextProps) => {
     },
   ];
 
-  const [translation, setTranslation] = useState<boolean>(true);
+  const localeLanguage = navigator.language || "en";
+  const isPortuguese = localeLanguage.toLowerCase().startsWith("pt");
+
+  const [translation, setTranslation] = useState<boolean>(isPortuguese);
 
   return (
     <>
