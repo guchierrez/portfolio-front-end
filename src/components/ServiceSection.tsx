@@ -12,7 +12,7 @@ export const ServiceSection = () => {
 
   return (
     <div>
-      <h2 className="pb-8 text-3xl">My Services</h2>
+      <h2 className="pb-8 text-3xl">{translation ? "Serviços" : "My Services"}</h2>
     <div className="grid gap-10 select-none md:grid-cols-2 lg:grid-cols-3 xl:flex xl:flex-nowrap">
     <ServiceCard Icon={FaCode} title={translation ? "Desenvolvimento Front-end" : "Front-end Development"} description={translation ? "Implementação e design da interface do usuário de websites utilizando HTML, CSS e JavaScript." : "Implementation and design of the user interface of websites using HTML, CSS, and JavaScript."} />
     <ServiceCard Icon={GoServer} title={translation ? "Desenvolvimento Back-end" : "Back-end Development"} description={translation ? "Arquitetura lógica do lado do servidor, bancos de dados e APIs para possibilitar a funcionalidade de aplicações web." : "Server-side logic architecture, databases, and APIs to enable the functionality of web applications."} />
