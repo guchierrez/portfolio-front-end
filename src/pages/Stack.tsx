@@ -21,7 +21,7 @@ export const Stack = () => {
         loading
           ? "opacity-0 translate-y-3 select-none "
           : "transition-all duration-1000"
-      } mx-auto w-5/6 flex flex-col gap-12 py-10`}
+      } mx-auto xl:w-2/3 w-5/6 flex flex-col gap-12 py-10`}
     >
       <PageTitle title={translation ? "Tecnologias" : "Technologies"} />
       <main>

@@ -2,7 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'xl': '1600px', // Change this value according to your requirements
+      },
+    },
     fontFamily: {
       marlinge: ["marlinge", "sans-serif"],
     },

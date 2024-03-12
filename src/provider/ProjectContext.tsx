@@ -156,6 +156,34 @@ export const ProjectContextProvider = ({ children }: IProjectContextProps) => {
         "https://github.com/Kenzie-Academy-Brasil-Developers/dev-hub_marcelino-gutierrez",
       ],
     },
+    {
+      id: 6,
+      name: "FrameDraw Player",
+      description:
+        "FrameDraw Player é uma plataforma web que capacita os usuários a fazer upload de vídeos locais, criar polígonos sobre eles e extrair seus vértices, tudo com o objetivo de definir áreas de interesse de maneira precisa e eficiente.",
+      description_en:
+        "FrameDraw Player is a web platform that enables users to upload local videos, draw polygons on them, and extract their vertices, all with the purpose of accurately and efficiently determining areas of interest.",
+      image: "https://img.freepik.com/vetores-gratis/design-de-maquete-de-modelo-de-player-de-video-preto_1017-36895.jpg?size=626&ext=jpg",
+      technologies: [
+        "React.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Daisy UI",
+      ],
+      features: [
+        "Validação dinâmica de formulários",
+        "Design responsivo em todas as resoluções",
+      ],
+      features_en: [
+        "Dynamic form validation",
+        "Responsive design in all resolutions",
+      ],
+      project_url: "https://frame-draw-player.vercel.app/",
+      repositories: [
+        "https://github.com/guchierrezzz/frame-draw-player",
+      ],
+    },
+    
   ];
 
   return (

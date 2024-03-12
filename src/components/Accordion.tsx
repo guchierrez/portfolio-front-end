@@ -15,7 +15,7 @@ export const Accordion = ({ children, title, project }: IAccordionProps) => {
       <div className={`${isChecked ? "text-primary" : ""} text-lg  font-medium tracking-widest uppercase collapse-title md:w-fit`}>
         {title}
       </div>
-      <div className="collapse-content">{children}</div>
+      <div className="xl:text-lg collapse-content">{children}</div>
     </div>
   );
 };

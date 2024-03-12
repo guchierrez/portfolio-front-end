@@ -1,5 +1,6 @@
 import { Dispatch, ElementType, ReactNode } from "react";
 import { TContactFormValues } from "../schema/ContactFormSchema";
+import { IconType } from "react-icons";
 
 export interface IStackCardProps {
   Icon: ElementType;
@@ -66,4 +67,10 @@ export interface Project {
   features_en: string[];
   project_url: string;
   repositories: string[];
+}
+
+export interface IServiceCardProps {
+  Icon: IconType;
+  title: string;
+  description: string;
 }
