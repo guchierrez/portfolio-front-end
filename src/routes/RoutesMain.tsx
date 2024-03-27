@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { Home } from "../pages/Home";
-import { Stack } from "../pages/Stack";
+import { Technologies } from "../pages/Technologies";
 import { Contact } from "../pages/Contact";
 import { Projects } from "../pages/Projects";
 import { Navbar } from "../components/Navbar";
@@ -26,7 +26,7 @@ export const RoutesMain = () => {
     <Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/stack" element={<Stack />} />
+        <Route path="/technologies" element={<Technologies />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

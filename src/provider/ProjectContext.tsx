@@ -5,11 +5,11 @@ import { toast } from "react-toastify";
 export const ProjectContext = createContext({} as IProjectContext);
 
 export const ProjectContextProvider = ({ children }: IProjectContextProps) => {
+  const [projects, setProjects] = useState<Array<Project>>([]);
+
   useEffect(() => {
     loadProjects();
   }, []);
-
-  const [projects, setProjects] = useState<Array<Project>>([]);
 
   const loadProjects = async (): Promise<void> => {
     try {
@@ -163,13 +163,9 @@ export const ProjectContextProvider = ({ children }: IProjectContextProps) => {
         "FrameDraw Player é uma plataforma web que capacita os usuários a fazer upload de vídeos locais, criar polígonos sobre eles e extrair seus vértices, tudo com o objetivo de definir áreas de interesse de maneira precisa e eficiente.",
       description_en:
         "FrameDraw Player is a web platform that enables users to upload local videos, draw polygons on them, and extract their vertices, all with the purpose of accurately and efficiently determining areas of interest.",
-      image: "https://img.freepik.com/vetores-gratis/design-de-maquete-de-modelo-de-player-de-video-preto_1017-36895.jpg?size=626&ext=jpg",
-      technologies: [
-        "React.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Daisy UI",
-      ],
+      image:
+        "https://img.freepik.com/vetores-gratis/design-de-maquete-de-modelo-de-player-de-video-preto_1017-36895.jpg?size=626&ext=jpg",
+      technologies: ["React.js", "TypeScript", "Tailwind CSS", "Daisy UI"],
       features: [
         "Validação dinâmica de formulários",
         "Design responsivo em todas as resoluções",
@@ -179,11 +175,8 @@ export const ProjectContextProvider = ({ children }: IProjectContextProps) => {
         "Responsive design in all resolutions",
       ],
       project_url: "https://frame-draw-player.vercel.app/",
-      repositories: [
-        "https://github.com/guchierrezzz/frame-draw-player",
-      ],
+      repositories: ["https://github.com/guchierrezzz/frame-draw-player"],
     },
-    
   ];
 
   return (

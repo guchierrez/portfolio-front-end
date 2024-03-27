@@ -9,6 +9,7 @@ import {
 } from "../schema/ContactFormSchema";
 import { FormTextareaInput } from "./FormTextareaInput";
 import { ContactFormSchemaPt } from "../schema/ContactFormSchemaPt";
+import { motion } from "framer-motion";
 
 export const ContactForm = () => {
   const { sendEmail, translation } = useContext(MainContext);
@@ -29,12 +30,26 @@ export const ContactForm = () => {
     reset();
   };
 
+  const item = {
+    hidden: { x: 20, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+    },
+  };
+
   return (
     <form
       noValidate
-      className="w-full lg:max-w-sm self-center flex flex-col gap-5"
+      className="flex flex-col self-center w-full gap-5 lg:max-w-sm"
       onSubmit={handleSubmit(submit)}
     >
+      <motion.h1
+        variants={item}
+        className="w-2/3 mx-auto text-xl tracking-widest text-center text-primary"
+      >
+        {translation ? "Entre em contato!" : "Get in touch!"}
+      </motion.h1>
       <FormTextInput
         register={register}
         errors={errors}
@@ -55,9 +70,12 @@ export const ContactForm = () => {
         inputName="message"
         inputPlaceholder={translation ? "Mensagem" : "Message"}
       />
-      <button className="btn btn-primary w-1/2 mx-auto rounded-none my-4 tracking-widest">
+      <motion.button
+        variants={item}
+        className="w-1/2 mx-auto my-4 tracking-widest rounded-none btn btn-primary"
+      >
         {translation ? "Enviar" : "Send"}
-      </button>
+      </motion.button>
     </form>
   );
 };

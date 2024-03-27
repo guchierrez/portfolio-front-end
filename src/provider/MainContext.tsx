@@ -5,21 +5,6 @@ import { TContactFormValues } from "../schema/ContactFormSchema";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
 import { IMainContext, IMainContextProps } from "../interface";
-import {
-  BiLogoAngular,
-  BiLogoCss3,
-  BiLogoDjango,
-  BiLogoHtml5,
-  BiLogoJava,
-  BiLogoJavascript,
-  BiLogoPostgresql,
-  BiLogoPython,
-  BiLogoReact,
-  BiLogoSpringBoot,
-  BiLogoTailwindCss,
-  BiLogoTypescript,
-} from "react-icons/bi";
-import { SiExpress, SiNodedotjs } from "react-icons/si";
 
 export const MainContext = createContext({} as IMainContext);
 
@@ -28,8 +13,14 @@ export const MainContextProvider = ({ children }: IMainContextProps) => {
   const NavbarElementRef = useRef<HTMLDivElement>(null);
 
   const toggleDrawer = () => {
-    if (NavbarDrawerRef.current !== null)
+    if (NavbarDrawerRef.current !== null) {
       NavbarDrawerRef.current.checked = !NavbarDrawerRef.current.checked;
+      NavbarDrawerRef.current.blur();
+    }
+
+    if (NavbarElementRef.current !== null) {
+      NavbarElementRef.current.blur();
+    }
   };
 
   const sendEmail = async (formData: TContactFormValues) => {
@@ -55,66 +46,6 @@ export const MainContextProvider = ({ children }: IMainContextProps) => {
     }
   };
 
-  const stacks = [
-    {
-      name: "HTML",
-      Icon: BiLogoHtml5,
-    },
-    {
-      name: "CSS",
-      Icon: BiLogoCss3,
-    },
-
-    {
-      name: "Tailwind CSS",
-      Icon: BiLogoTailwindCss,
-    },
-    {
-      name: "Java",
-      Icon: BiLogoJava,
-    },
-    {
-      name: "Spring Boot",
-      Icon: BiLogoSpringBoot,
-    },
-    {
-      name: "Python",
-      Icon: BiLogoPython,
-    },
-    {
-      name: "Django",
-      Icon: BiLogoDjango,
-    },
-    {
-      name: "JavaScript",
-      Icon: BiLogoJavascript,
-    },
-    {
-      name: "TypeScript",
-      Icon: BiLogoTypescript,
-    },
-    {
-      name: "React.js",
-      Icon: BiLogoReact,
-    },
-    {
-      name: "Angular",
-      Icon: BiLogoAngular,
-    },
-    {
-      name: "Node.js",
-      Icon: SiNodedotjs,
-    },
-    {
-      name: "Express.js",
-      Icon: SiExpress,
-    },
-    {
-      name: "PostgreSQL",
-      Icon: BiLogoPostgresql,
-    },
-  ];
-
   const localeLanguage = navigator.language || "en";
   const isPortuguese = localeLanguage.toLowerCase().startsWith("pt");
 
@@ -130,7 +61,6 @@ export const MainContextProvider = ({ children }: IMainContextProps) => {
           toggleDrawer,
           translation,
           setTranslation,
-          stacks,
         }}
       >
         {children}

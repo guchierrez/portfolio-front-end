@@ -1,4 +1,5 @@
 import { UseFormRegister, FieldErrors } from "react-hook-form";
+import { motion } from "framer-motion";
 
 type InputName = "message";
 
@@ -15,23 +16,31 @@ export const FormTextareaInput = ({
   inputName,
   inputPlaceholder,
 }: IFormTextInputProps) => {
+  const item = {
+    hidden: { x: 20, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+    },
+  };
+
   return (
-    <div className="flex flex-col gap-1">
+    <motion.div variants={item} className="flex flex-col gap-1">
       <textarea
         className={`${
           errors[inputName]
             ? "border-red-500 focus:border-red-500"
-            : "focus:border-primary border-white/30"
-        } outline-none focus:outline-none uppercase placeholder:tracking-widest placeholder-white/30 textarea textarea-lg resize-none bg-base-200 border-0 border-b-4 w-full rounded-none transition-all duration-500`}
+            : "focus:border-primary"
+        } outline-none focus:outline-none text-md placeholder-white/30 textarea resize-none rounded-none bg-base-200 w-full`}
         placeholder={inputPlaceholder}
         autoComplete="current-password"
         {...register(inputName)}
       />
       {errors[inputName] && (
-        <p className="text-red-500 text-xs font-roboto">
+        <p className="text-xs text-red-500 font-roboto">
           {errors[inputName]?.message?.toString()}
         </p>
       )}
-    </div>
+    </motion.div>
   );
 };

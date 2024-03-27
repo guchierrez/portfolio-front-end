@@ -23,9 +23,9 @@ export const Navbar = ({ children }: INavbarProps) => {
         type="checkbox"
         className="drawer-toggle"
       />
-      <div className="drawer-content flex flex-col">
-        <div ref={NavbarElementRef} className="w-full bg-base-100 shadow-lg">
-          <div className="flex w-5/6 md:w-2/3 mx-auto items-center justify-between">
+      <div className="flex flex-col drawer-content">
+        <div ref={NavbarElementRef} className="w-full shadow bg-base-100">
+          <div className="flex items-center justify-between w-5/6 mx-auto md:w-2/3">
             <Link to="/">
               <img
                 className="w-10 py-2"
@@ -43,8 +43,8 @@ export const Navbar = ({ children }: INavbarProps) => {
                   id="language-checkbox"
                   type="checkbox"
                 />
-                <span className="swap-off fi fi-br text-2xl"></span>
-                <span className="swap-on fi fi-us text-2xl"></span>
+                <span className="text-2xl swap-off fi fi-br"></span>
+                <span className="text-2xl swap-on fi fi-us"></span>
               </label>
               <label
                 onClick={toggleDrawer}
@@ -72,17 +72,19 @@ export const Navbar = ({ children }: INavbarProps) => {
       <div className="drawer-side">
         <label onClick={toggleDrawer} className="drawer-overlay"></label>
         <ul
+          tabIndex={-1}
           onFocus={() => {
-            if (NavbarDrawerRef.current !== null)
+            if (NavbarDrawerRef.current !== null) {
               NavbarDrawerRef.current.checked = true;
+            }
           }}
-          className="menu p-4 w-80 h-full bg-base-100 tracking-widest"
+          className="h-full p-4 tracking-widest menu w-80 bg-base-100"
         >
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/stack">
+            <Link to="/technologies">
               {translation ? "Tecnologias" : "Technologies"}
             </Link>
           </li>

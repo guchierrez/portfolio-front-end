@@ -1,54 +1,54 @@
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { PageTitle } from "../components/PageTitle";
 import { ProjectCard } from "../components/ProjectCard";
 import { MainContext } from "../provider/MainContext";
 import { ProjectContext } from "../provider/ProjectContext";
-import { LoadingProjects } from "../components/LoadingProjects";
+import { motion } from "framer-motion";
 
 export const Projects = () => {
   const { translation } = useContext(MainContext);
   const { projects } = useContext(ProjectContext);
 
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 200);
-    return () => clearTimeout(timeout);
-  }, []);
+  const container = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 1,
+      },
+    },
+  };
 
   return (
-    <div
-      className={`${
-        loading
-          ? "opacity-0 translate-y-3 select-none "
-          : "transition-all duration-1000"
-      } mx-auto w-5/6 flex flex-col gap-12 py-10`}
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="flex flex-col w-5/6 gap-12 py-10 mx-auto"
     >
       <PageTitle title={translation ? "Projetos" : "Projects"} />
-      <main>
-        <div className="flex flex-col gap-20">
-          {projects.length > 0 ? (
-            projects.map((project) => (
-              <ProjectCard
-                imgSource={project.image}
-                title={project.name}
-                description={
-                  translation ? project.description : project.description_en
-                }
-                reverse={project.id % 2 != 0}
-                technologies={project.technologies}
-                features={translation ? project.features : project.features_en}
-                liveDemo={project.project_url}
-                repositories={project.repositories}
-              />
-            ))
-          ) : (
-            <LoadingProjects />
-          )}
-        </div>
-      </main>
-    </div>
+      <motion.ul
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        className="flex flex-col gap-20"
+      >
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            imgSource={project.image}
+            title={project.name}
+            description={
+              translation ? project.description : project.description_en
+            }
+            reverse={project.id % 2 != 0}
+            technologies={project.technologies}
+            features={translation ? project.features : project.features_en}
+            liveDemo={project.project_url}
+            repositories={project.repositories}
+          />
+        ))}
+      </motion.ul>
+    </motion.main>
   );
 };
