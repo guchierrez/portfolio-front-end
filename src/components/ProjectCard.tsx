@@ -15,25 +15,15 @@ export const ProjectCard = ({
   liveDemo,
   repositories,
 }: IProjectCardProps) => {
-  const item = {
-    hidden: { opacity: 0, x: -100 },
-    visible: {
-      opacity: 1,
-      x: 0,
-    },
-  };
-
-  const reverseItem = {
-    hidden: { opacity: 0, x: 100 },
-    visible: {
-      opacity: 1,
-      x: 0,
-    },
-  };
   const { translation } = useContext(MainContext);
   return (
-    <motion.li
-      variants={reverse ? reverseItem : item}
+    <motion.div
+      initial={reverse ? { opacity: 0, x: -100 } : { opacity: 0, x: 100 }}
+      whileInView={{
+        opacity: 1,
+        x: 0,
+        transition: { delay: 0.5, duration: 0.7 },
+      }}
       className={`md:flex ${
         reverse ? "md:flex-row-reverse ml-auto" : "md:flex-row"
       }  grid bg-[#1c1c1c] my-auto grid-cols-1 w-full xl:w-3/4`}
@@ -60,6 +50,6 @@ export const ProjectCard = ({
           translation={translation}
         />
       </div>
-    </motion.li>
+    </motion.div>
   );
 };

@@ -23,7 +23,7 @@ export const Projects = () => {
   return (
     <motion.main
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      whileInView={{ opacity: 1, transition: { duration: 2 } }}
       className="flex flex-col w-5/6 gap-12 py-10 mx-auto"
     >
       <PageTitle title={translation ? "Projetos" : "Projects"} />

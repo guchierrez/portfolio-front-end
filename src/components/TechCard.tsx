@@ -12,7 +12,7 @@ export const TechCard = ({
   const { translation } = useContext(MainContext);
 
   const item = {
-    hidden: { opacity: 0, scale: 0 },
+    hidden: { opacity: 0.5, scale: 0.5 },
     visible: {
       opacity: 1,
       scale: 1,
@@ -22,8 +22,9 @@ export const TechCard = ({
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
-      variants={item}
-      className="w-full p-8 transition-transform duration-500 shadow bg-base-200/50 xl:w-96"
+      initial={{ opacity: 0, scale: 0 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      className="w-full p-8 transition-transform duration-500 shadow bg-base-200/50 lg:w-96"
     >
       <div className="flex items-center gap-3">
         <Icon className="text-5xl fill-primary" />
