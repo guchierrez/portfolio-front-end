@@ -11,14 +11,6 @@ export const TechCard = ({
 }: ITechCardProps) => {
   const { translation } = useContext(MainContext);
 
-  const item = {
-    hidden: { opacity: 0.5, scale: 0.5 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-    },
-  };
-
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
